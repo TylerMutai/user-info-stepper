@@ -1,0 +1,35 @@
+.button {
+  border-radius: 24px;
+  height: 32px;
+  transition: all ease-in-out .5s;
+  width: auto;
+  font-size: 18px;
+  border: none;
+}
+
+.primary {
+  background: dodgerblue;
+  color: #FFFFFF;
+}
+
+.primary:hover {
+  background: blue;
+}
+
+.secondary {
+  background: darkgray;
+  color: #FFFFFF;
+}
+
+.secondary:hover {
+  background: gray;
+}
+
+.danger {
+  background: indianred;
+  color: #FFFFFF;
+}
+
+.danger:hover {
+  background: red;
+}
