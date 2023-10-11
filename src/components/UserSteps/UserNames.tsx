@@ -12,7 +12,7 @@ function UserNames() {
     register,
     watch,
     formState: {errors},
-  } = useForm<User>()
+  } = useForm<User>({mode: "all"})
   const {user, setUser, setNextButtonEnabled} = useContext(AppContext);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function UserNames() {
         if (name) {
           setUser(u => {
             const userCopy = {...u} as any;
-            userCopy[name] = value;
+            userCopy[name] = value[name];
             return userCopy;
           })
         }
@@ -30,7 +30,7 @@ function UserNames() {
   }, [watch, setUser])
 
   useEffect(() => {
-    if (user.firstName && user.lastName) {
+    if (user.firstName?.length >= 2 && user.lastName?.length >= 2) {
       setNextButtonEnabled(true);
     } else {
       setNextButtonEnabled(false);
@@ -50,7 +50,7 @@ function UserNames() {
     minLength: {
       value: 2,
       message: "Last name should have a minimum length of 2"
-    }
+    },
   }), [])
 
   return (

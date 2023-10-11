@@ -11,6 +11,10 @@
   align-items: center;
 }
 
+.button:disabled {
+  opacity: .5;
+}
+
 .primary {
   background: dodgerblue;
   color: #FFFFFF;

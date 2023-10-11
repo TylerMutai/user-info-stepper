@@ -11,7 +11,7 @@ function UserAge() {
     register,
     watch,
     formState: {errors},
-  } = useForm<User>()
+  } = useForm<User>({mode: "all"})
   const {user, setUser, setNextButtonEnabled} = useContext(AppContext);
 
   React.useEffect(() => {
@@ -19,7 +19,7 @@ function UserAge() {
         if (name) {
           setUser(u => {
             const userCopy = {...u} as any;
-            userCopy[name] = value;
+            userCopy[name] = value[name];
             return userCopy;
           })
         }
@@ -49,9 +49,9 @@ function UserAge() {
       <DefaultInputLabel htmlFor={"age"}>
         Age
       </DefaultInputLabel>
-      <DefaultInput defaultValue={user.age} {...register("age", optionsAge)} type={"number"}
+      <DefaultInput defaultValue={user.age || undefined} {...register("age", optionsAge)} type={"number"}
                     placeholder={"Enter your age"}/>
-      {errors.age && <span>{errors.age.message}</span>}
+      {errors.age && <span style={{color: "red"}}>{errors.age.message}</span>}
     </DefaultInputGroup>
   );
 }
