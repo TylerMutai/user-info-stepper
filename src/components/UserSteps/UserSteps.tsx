@@ -42,9 +42,9 @@ function UserSteps() {
   return (
     <DefaultModal>
       <DefaultModalHeader>
-        <p style={{marginBottom: 0}}>
+        <h2 style={{marginBottom: 0}}>
           User Stepper Modal
-        </p>
+        </h2>
         <DefaultButton onClick={handleModalClose}>
           <AiFillCloseCircle/>
         </DefaultButton>

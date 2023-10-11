@@ -3,6 +3,8 @@ import {RegisterOptions, useForm} from "react-hook-form";
 import User from "../../utils/types/user";
 import DefaultInput from "../Input/DefaultInput";
 import {AppContext} from "../../utils/contexts/appContext";
+import DefaultInputGroup from "../InputGroup/DefaultInputGroup";
+import DefaultInputLabel from "../InputLabel/DefaultInputLabel";
 
 
 function UserNames() {
@@ -53,10 +55,21 @@ function UserNames() {
 
   return (
     <>
-      <DefaultInput defaultValue={user.firstName} {...register("firstName", optionsFirstName)}  />
-      {errors.firstName && <span>{errors.firstName.message}</span>}
-      <DefaultInput {...register("lastName", optionsLastName)} />
-      {errors.lastName && <span>{errors.lastName.message}</span>}
+      <DefaultInputGroup>
+        <DefaultInputLabel htmlFor={"firstName"}>
+          First name
+        </DefaultInputLabel>
+        <DefaultInput defaultValue={user.firstName} {...register("firstName", optionsFirstName)}
+                      placeholder={"Enter your first name"}/>
+        {errors.firstName && <span style={{color: "red"}}>{errors.firstName.message}</span>}
+      </DefaultInputGroup>
+      <DefaultInputGroup>
+        <DefaultInputLabel htmlFor={"lastName"}>
+          Last name
+        </DefaultInputLabel>
+        <DefaultInput {...register("lastName", optionsLastName)} placeholder={"Enter your last name"}/>
+        {errors.lastName && <span style={{color: "red"}}>{errors.lastName.message}</span>}
+      </DefaultInputGroup>
     </>
   );
 }

@@ -1,10 +1,14 @@
 .button {
   border-radius: 24px;
-  height: 32px;
-  transition: all ease-in-out .5s;
+  min-height: 32px;
+  transition: all ease-in-out .2s;
+  padding: 12px 24px;
   width: auto;
   font-size: 18px;
   border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .primary {

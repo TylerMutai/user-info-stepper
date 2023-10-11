@@ -1,9 +1,9 @@
 import React, {useEffect, useMemo, useState} from "react";
-import {AppContext} from "../contexts/appContext.js";
 import User, {defaultUser} from "../types/user";
 import UserNames from "../../components/UserSteps/UserNames";
 import UserAge from "../../components/UserSteps/UserAge";
 import UserDataView from "../../components/UserSteps/UserDataView";
+import { AppContext } from "../contexts/appContext";
 
 interface Props {
   children: React.ReactElement | React.ReactElement[]

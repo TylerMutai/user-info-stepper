@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import AppContextProvider from "./utils/providers/AppContextProvider";
 import Index from "./pages";
 

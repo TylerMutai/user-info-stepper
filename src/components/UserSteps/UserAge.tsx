@@ -3,6 +3,8 @@ import {RegisterOptions, useForm} from "react-hook-form";
 import User from "../../utils/types/user";
 import {AppContext} from "../../utils/contexts/appContext";
 import DefaultInput from "../Input/DefaultInput";
+import DefaultInputLabel from "../InputLabel/DefaultInputLabel";
+import DefaultInputGroup from "../InputGroup/DefaultInputGroup";
 
 function UserAge() {
   const {
@@ -43,10 +45,14 @@ function UserAge() {
   }), [])
 
   return (
-    <>
-      <DefaultInput defaultValue={user.age} {...register("age", optionsAge)} type={"number"}/>
+    <DefaultInputGroup>
+      <DefaultInputLabel htmlFor={"age"}>
+        Age
+      </DefaultInputLabel>
+      <DefaultInput defaultValue={user.age} {...register("age", optionsAge)} type={"number"}
+                    placeholder={"Enter your age"}/>
       {errors.age && <span>{errors.age.message}</span>}
-    </>
+    </DefaultInputGroup>
   );
 }
 
